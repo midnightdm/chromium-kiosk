@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  chromium-kiosk:
+    image: midnightdm/chromium-kiosk:latest
+    environment:
+      - DISPLAY=:0
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    devices:
+      - /dev/dri:/dev/dri
+    network_mode: host
+    restart: unless-stopped
